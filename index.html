@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./images/air_elise_logo.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5MlZFA8K9C6oXVSgNgt4Xxf3H5E/4B4/n8W96+nN/6mD/a6589A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="./styles/globals.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <title>Air Elise, LLC</title>
+  </head>
+  <body>
+    <header>
+      <img
+        id="main-logo"
+        src="./images/air_elise_logo.svg"
+        alt="Air Elise, LLC Logo"
+      />
+    </header>
+    <main>
+      <section id="introduction">
+        <h1>Welcome to Air Elise, LLC</h1>
+        <p>Keeping you comfortable in every season</p>
+        <div class="button-group">
+          <a href="#services">Our Services</a>
+          <a href="#contact">Contact Us</a>
+        </div>
+      </section>
+      <section id="services">
+        <h2>Services</h2>
+        <ul>
+          <li class="service-call">
+            HVAC system service and repair
+            <span><i class="fa-light fa-caret-down"></i></span>
+          </li>
+          <li class="service-response">
+            Is your home getting warm in the summer or cool in the winter? Get
+            your unit inspected and repaired to keep you and your family
+            comfortable at any time, in any season
+          </li>
+          <li class="service-call">
+            Preventative Mainetance<span
+              ><i class="fa-light fa-caret-down"></i
+            ></span>
+          </li>
+          <li class="service-response">
+            Make sure your system is ahead of the curve, regular maintenance can
+            save you money and hassle. Call now to have you HVAC system
+            inspected and tuned up for the harshest of seasons!
+          </li>
+          <li class="service-call">
+            Mini-Split Installations<span
+              ><i class="fa-light fa-caret-down"></i
+            ></span>
+          </li>
+          <li class="service-response">
+            Compact, Efficient, and Economical, Mini-Split systems are the
+            perfect solution for small to medium living spaces to keep the
+            climate exactly where you need it. Call now for a quote on getting
+            one installed in your most essential spaces.
+          </li>
+        </ul>
+      </section>
+      <section id="contact">
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p>
+            For inquiries or to schedule a service, please reach out to us at
+            <a href="tel:+3372630646" class="contact-link">(337) 263-0646</a> or
+            email me at
+            <a href="mailto:cameronlopez.111991@gmail.com" class="contact-link"
+              >cameronlopez.111991@gmail.com</a
+            >
+          </p>
+        </div>
+        <form action="#" id="contact-form" method="post">
+          <h2>Contact Us</h2>
+          <div>
+            <label for="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Your Name"
+              required
+            />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Your Email"
+              required
+            />
+          </div>
+          <div>
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Message me for more info!"
+            ></textarea>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <section id="collage">
+        <div class="image-box">
+          <img src="./images/dual-unit-hvac.jpg" alt="" />
+          <img src="./images/residential-hvac.jpg" alt="" />
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2025 Air Elise, LLC. All rights reserved.</p>
+    </footer>
+  </body>
+  <script src="./main.js"></script>
+</html>
