@@ -3,29 +3,33 @@ name: Deploy to Linode
 on:
   push:
     branches:
-      - master
+      - master # or 'main' if that's your default branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clean old files
+      # 1️⃣ Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2️⃣ Clean old files
+      - name: Clean old files on server
         uses: appleboy/ssh-action@v0.1.9
         with:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           script: rm -rf ${{ secrets.DEPLOY_PATH }}/*
-      - name: Checkout code
-        uses: actions/checkout@v3
 
-      - name: Deploy files over SCP
+      # 3️⃣ Deploy site files over SCP
+      - name: Deploy site files
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
-          source: "./src/"
+          source: "./src/*" # copy contents of src, NOT the folder itself
           target: ${{ secrets.DEPLOY_PATH }}
           overwrite: true
