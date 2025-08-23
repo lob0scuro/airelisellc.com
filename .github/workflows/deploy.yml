@@ -10,6 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Clean old files
+        uses: appleboy/ssh-action@v0.1.9
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: rm -rf ${{ secrets.DEPLOY_PATH }}/*
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -19,6 +26,6 @@ jobs:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
-          source: "./src/*"
+          source: "./src/"
           target: ${{ secrets.DEPLOY_PATH }}
           overwrite: true
