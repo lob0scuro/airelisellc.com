@@ -1,0 +1,4 @@
+secrets.txt
+mailer.py
+server/*
+.env
