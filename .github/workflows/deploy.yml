@@ -19,6 +19,6 @@ jobs:
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
-          source: "./*"
+          source: "./src/*"
           target: ${{ secrets.DEPLOY_PATH }}
           overwrite: true
