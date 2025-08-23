@@ -1,9 +1,21 @@
 footer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   padding: 2rem 0;
   background-color: var(--dark-blue);
   color: var(--light-blue);
+}
+
+footer div {
+  font-size: 0.8rem;
+  display: flex;
+  gap: 8px;
+}
+
+footer p.last {
+  margin-top: 1rem;
+  font-size: 0.8rem;
 }
