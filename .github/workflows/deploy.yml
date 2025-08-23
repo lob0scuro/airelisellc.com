@@ -1,4 +1,4 @@
-name: Deploy to Linode
+name: Deploy to Linode via SSH
 
 on:
   push:
@@ -10,15 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      # 1️⃣ Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy Site Files
-        uses: appleboy/scp-action@v0.1.6
-        with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          key: ${{ secrets.DEPLOY_KEY }}
-          source: "./src/*"
-          target: ${{ secrets.DEPLOY_PATH }}
-          overwrite: true
+      # 2️⃣ Deploy via rsync over SSH
+      - name: Deploy site files
+        run: |
+          mkdir -p ${{ secrets.DEPLOY_PATH }}
+          rsync -avz --delete ./src/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}/
+        env:
+          RSYNC_RSH: "ssh -i ${{ secrets.DEPLOY_KEY }} -o StrictHostKeyChecking=no"
