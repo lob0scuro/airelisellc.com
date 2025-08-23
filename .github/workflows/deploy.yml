@@ -1,9 +1,9 @@
-name: Deploy to Linode via SSH
+name: Deploy to Linode
 
 on:
   push:
     branches:
-      - master
+      - master # or main
 
 jobs:
   deploy:
@@ -14,10 +14,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2️⃣ Deploy via rsync over SSH
+      # 2️⃣ Deploy files via SCP (contents only)
       - name: Deploy site files
-        run: |
-          mkdir -p ${{ secrets.DEPLOY_PATH }}
-          rsync -avz --delete ./src/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}/
-        env:
-          RSYNC_RSH: "ssh -i ${{ secrets.DEPLOY_KEY }} -o StrictHostKeyChecking=no"
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          source: "./src/*" # important: contents only
+          target: ${{ secrets.DEPLOY_PATH }}
+          overwrite: true
