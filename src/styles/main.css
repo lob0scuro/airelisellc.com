@@ -24,6 +24,14 @@ section#introduction h1 {
   width: 100%;
 }
 
+section#introduction a.call-us {
+  color: var(--light-blue);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+}
+
 section#introduction div.button-group {
   margin-top: 2rem;
   display: flex;
@@ -48,6 +56,7 @@ section#services {
   text-align: center;
   padding-block: 2rem;
   color: var(--dark-blue);
+  padding-bottom: 4rem;
 }
 
 section#services h2 {
@@ -60,7 +69,7 @@ section#services ul {
   list-style-type: none;
   text-align: start;
   width: 80%;
-  margin: 1rem auto;
+  margin: 1rem auto 2.5rem auto;
 }
 
 section#services ul li {
@@ -95,6 +104,17 @@ section#services ul li.service-response.active {
 section#services ul li.service-call.active {
   color: var(--tan);
   background-color: var(--dark-blue);
+}
+
+section#services a.pricing-button {
+  background-color: var(--red);
+  color: var(--off-white);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+
+  font-weight: 600;
+  font-size: 1.2rem;
+  box-shadow: -1px 1px 5px #000;
 }
 
 /*
